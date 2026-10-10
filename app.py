@@ -6,22 +6,12 @@ Every formula below mirrors the Excel model; the "Model Integrity" tab proves it
 by re-computing the Excel outputs to the nearest tenge.
 Source data: Kaspi.kz Form 20-F for FY2025 (all amounts in KZT million).
 """
-from pathlib import Path
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-from PIL import Image
 
-# Favicon: kaspi_logo.png lives next to this file (falls back to an emoji if it is missing)
-LOGO_PATH = Path(__file__).resolve().parent / "kaspi_logo.png"
-try:
-    page_icon = Image.open(LOGO_PATH)
-except Exception:
-    page_icon = "📈"
-
-st.set_page_config(page_title="Kaspi.kz Growth & Scenario Simulator", page_icon=page_icon, layout="wide")
+st.set_page_config(page_title="Kaspi.kz Growth & Scenario Simulator", layout="wide")
 
 # ----------------------------------------------------------------------------
 # Styling (font is applied to text elements only, so Streamlit's icon font keeps working)
@@ -192,6 +182,10 @@ st.markdown("""
   </div>
 </div>
 """, unsafe_allow_html=True)
+st.caption(
+    "Independent project based on public filings (Kaspi.kz Form 20-F FY2025). "
+    "Not affiliated with Kaspi.kz. Not investment advice."
+)
 
 # ----------------------------------------------------------------------------
 # Sidebar
