@@ -95,7 +95,7 @@ PRESETS = {
     "Bear Case": dict(tpv_g=10, pay_tr=1.10, pay_ig=-10, gmv_g=6, mkt_tr=10.45, oth_g=10, tfv_g=5,
                       conv=1.85, yld=23.0, prov=5.0, m_pay=60.0, m_mkt=36.0, ie=16.0, opex=9.0),
     "Base Case": dict(tpv_g=15, pay_tr=1.13, pay_ig=8, gmv_g=10, mkt_tr=10.90, oth_g=25, tfv_g=13,
-                      conv=1.80, yld=24.0, prov=2.5, m_pay=65.7, m_mkt=41.4, ie=14.1, opex=7.5),
+                      conv=1.80, yld=24.0, prov=2.5, m_pay=65.7, m_mkt=41.4, ie=11.9, opex=7.5),
     "Bull Case": dict(tpv_g=20, pay_tr=1.155, pay_ig=12, gmv_g=14, mkt_tr=11.20, oth_g=35, tfv_g=18,
                       conv=1.75, yld=24.5, prov=2.0, m_pay=68.0, m_mkt=45.0, ie=12.0, opex=6.5),
 }
@@ -139,10 +139,10 @@ def project(p, fin_other=0.0, tpv_g_pct=None):
 # Excel "2025 replay" inputs (column F): zero growth, 2025 actual ratios
 REPLAY_PARAMS = dict(
     tpv_g=0, pay_tr=510_763 / TPV_25 * 100, pay_ig=0, gmv_g=0, mkt_tr=671_348 / GMV_3P_25 * 100, oth_g=0,
-    tfv_g=0, conv=TFV_25 / 6_415_000, yld=1_561_874 / 6_415_000 * 100, prov=161_651 / 6_415_000 * 100,
+    tfv_g=0, conv=TFV_25 / 6_415_000, yld=1_561_874 / 6_415_000 * 100, prov=150_798 / 6_415_000 * 100,
     m_pay=433_001 / 658_726 * 100, m_mkt=(279_773 + 93_018) / 899_880 * 100,
-    ie=908_698 / 6_415_000 * 100,
-    opex=(1_561_874 - 18_940 - 908_698 - 161_651 - 354_933) / 1_561_874 * 100,
+    ie=763_964 / 6_415_000 * 100,
+    opex=(1_561_874 - 18_940 - 763_964 - 150_798 - 354_933) / 1_561_874 * 100,
 )
 
 # Snapshot of the Excel outputs (Analysis!C83:E83, C98:E98, F83, F98) for the integrity check
