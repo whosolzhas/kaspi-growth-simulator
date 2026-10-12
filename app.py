@@ -93,11 +93,11 @@ ORDER = list(DRIVERS.keys())
 # Scenario presets = Excel Analysis C67:E91 (percent units)
 PRESETS = {
     "Bear Case": dict(tpv_g=10, pay_tr=1.10, pay_ig=-10, gmv_g=6, mkt_tr=10.45, oth_g=10, tfv_g=5,
-                      conv=1.85, yld=23.0, prov=5.0, m_pay=60.0, m_mkt=36.0, ie=16.0, opex=9.0),
+                      conv=1.85, yld=23.0, prov=4.9, m_pay=60.0, m_mkt=36.0, ie=13.8, opex=19.0),
     "Base Case": dict(tpv_g=15, pay_tr=1.13, pay_ig=8, gmv_g=10, mkt_tr=10.90, oth_g=25, tfv_g=13,
-                      conv=1.80, yld=24.0, prov=2.5, m_pay=65.7, m_mkt=41.4, ie=11.9, opex=7.5),
+                      conv=1.80, yld=24.0, prov=2.4, m_pay=65.7, m_mkt=41.4, ie=11.9, opex=17.5),
     "Bull Case": dict(tpv_g=20, pay_tr=1.155, pay_ig=12, gmv_g=14, mkt_tr=11.20, oth_g=35, tfv_g=18,
-                      conv=1.75, yld=24.5, prov=2.0, m_pay=68.0, m_mkt=45.0, ie=12.0, opex=6.5),
+                      conv=1.75, yld=24.5, prov=1.9, m_pay=68.0, m_mkt=45.0, ie=9.8, opex=16.5),
 }
 # 2025 anchors shown next to the sliders (history the assumptions are tied to)
 ANCHORS = {
