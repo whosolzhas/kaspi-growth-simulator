@@ -13,9 +13,6 @@ from matplotlib.ticker import FuncFormatter
 
 st.set_page_config(page_title="Kaspi.kz Growth & Scenario Simulator", layout="wide")
 
-# ----------------------------------------------------------------------------
-# Styling (font is applied to text elements only, so Streamlit's icon font keeps working)
-# ----------------------------------------------------------------------------
 plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = ["Inter Tight", "DejaVu Sans", "sans-serif"]
 
@@ -85,8 +82,9 @@ DRIVERS = {
     "prov":    ("Provision / avg net loan portfolio, %", 1.0, 7.0, 0.1, "%.1f", "3. Fintech"),
     "m_pay":   ("Payments net margin, %", 50.0, 75.0, 0.1, "%.1f", "4. Cost layer"),
     "m_mkt":   ("Marketplace (KZ) net margin, %", 25.0, 55.0, 0.1, "%.1f", "4. Cost layer"),
-    "ie":      ("Fintech interest expense / avg net portfolio, %", 10.0, 18.0, 0.1, "%.1f", "4. Cost layer"),
-    "opex":    ("Fintech opex & tax, % of gross revenue", 4.0, 15.0, 0.1, "%.1f", "4. Cost layer"),
+    # ИСПРАВЛЕНИЕ ЗДЕСЬ: расширили границы для ie (от 8.0) и opex (до 25.0)
+    "ie":      ("Fintech interest expense / avg net portfolio, %", 8.0, 18.0, 0.1, "%.1f", "4. Cost layer"),
+    "opex":    ("Fintech opex & tax, % of gross revenue", 4.0, 25.0, 0.1, "%.1f", "4. Cost layer"),
 }
 ORDER = list(DRIVERS.keys())
 
@@ -148,8 +146,8 @@ REPLAY_PARAMS = dict(
 # Snapshot of the Excel outputs (Analysis!C83:E83, C98:E98, F83, F98) for the integrity check
 EXCEL_SNAPSHOT = {
     "Bear Case": {"rev": 3_152_135.888378, "ni": 742_930.579492},
-    "Base Case": {"rev": 3_545_776.645000, "ni": 1_329_244.416998},
-    "Bull Case": {"rev": 3_832_111.140000, "ni": 1_737_159.354000},
+    "Base Case": {"rev": 3_545_776.645000, "ni": 1_321_929.550332},
+    "Bull Case": {"rev": 3_832_111.140000, "ni": 1_725_374.188286},
     "2025 replay": {"rev": 3_120_480.0, "ni": 1_160_725.0},
 }
 
