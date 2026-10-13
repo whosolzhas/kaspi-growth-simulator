@@ -82,7 +82,6 @@ DRIVERS = {
     "prov":    ("Provision / avg net loan portfolio, %", 1.0, 7.0, 0.1, "%.1f", "3. Fintech"),
     "m_pay":   ("Payments net margin, %", 50.0, 75.0, 0.1, "%.1f", "4. Cost layer"),
     "m_mkt":   ("Marketplace (KZ) net margin, %", 25.0, 55.0, 0.1, "%.1f", "4. Cost layer"),
-    # ИСПРАВЛЕНИЕ ЗДЕСЬ: расширили границы для ie (от 8.0) и opex (до 25.0)
     "ie":      ("Fintech interest expense / avg net portfolio, %", 8.0, 18.0, 0.1, "%.1f", "4. Cost layer"),
     "opex":    ("Fintech opex & tax, % of gross revenue", 4.0, 25.0, 0.1, "%.1f", "4. Cost layer"),
 }
@@ -102,13 +101,13 @@ ANCHORS = {
     "tpv_g": "2025 actual: +18.8%", "pay_tr": "2024: 1.233% -> 2025: 1.155%", "pay_ig": "2025 actual: +15.5%",
     "gmv_g": "2024: +41.9%, 2025: +10.8%", "mkt_tr": "2024: 9.70% -> 2025: 10.45%",
     "oth_g": "2025 actual: +33.9%", "tfv_g": "2025 actual: +13.1%", "conv": "2024: 2.11 -> 2025: 1.82",
-    "yld": "2024: 25.98% -> 2025: 24.35%", "prov": "2025: 2.52% (20-F Cost of Risk 2.2% is on gross portfolio)",
+    "yld": "2024: 25.98% -> 2025: 24.35%", "prov": "2025: 2.35% (Fintech-segment provisions, 20-F, ÷ avg net portfolio)",
     "m_pay": "2025: 65.7%", "m_mkt": "2025: 41.4% (KZ, ex-Hepsiburada loss)",
-    "ie": "2025: 14.2%", "opex": "2025: 7.5%",
+    "ie": "2025: 11.9%", "opex": "2025: 17.5%",
 }
 
 
-def project(p, fin_other=0.0, tpv_g_pct=None):
+def project(p, fin_other=0.0):
     """2026E projection. p holds percent-unit drivers; formulas mirror Excel rows 78-98."""
     tpv_g, pay_tr, pay_ig = p["tpv_g"] / 100, p["pay_tr"] / 100, p["pay_ig"] / 100
     gmv_g, mkt_tr, oth_g = p["gmv_g"] / 100, p["mkt_tr"] / 100, p["oth_g"] / 100
@@ -365,7 +364,7 @@ segment revenue ÷ GMV (13.5%, which includes 1P retail); Fintech yield is reven
 """)
     with st.expander("⚠️ Known limitations & model caveats", expanded=True):
         st.markdown("""
-- **Bear case is mostly a volume shock.** Roughly 57% of the Bear-vs-Base fall in Fintech net income comes from lower portfolio and yield, ~36% from provisions, ~7% from funding/opex. It is not a pure credit stress.
+- **Bear case is not a full credit stress.** It combines slower volume, lower yield, higher provisions and higher funding cost, but the shocks are my own assumptions, not a calibrated credit-loss scenario.
 - **Margins are held as % of revenue.** Base keeps Marketplace net margin at 41.4% although 1P retail (lower margin) grows faster than fee revenue.
 - **Interest expense is pegged to the loan portfolio.** Structurally it depends on the deposit base (Average Savings) and deposit rates.
 - **Payments interest revenue is not linked to central-bank rates**; it is a plain growth input.
